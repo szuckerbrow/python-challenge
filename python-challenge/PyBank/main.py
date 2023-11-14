@@ -58,25 +58,39 @@ with open(budget_csv) as csvfile:
     max_inc_date = date[max_increase_index]
     max_dec_date = date[max_decrease_index]
 
-    print(f"Total Months: {num_of_months}")
-    print(f"Total: ${net_total_profit_losses}")
-    print(f"Average Change: ${avg_change_rounded}")
-    print(f"Greatest Increase in Profits: {max_inc_date} (${max_increase})")
-    print(f"Greatest Decrease in Profits: {max_dec_date} (${max_decrease})")
+    output = (
+        f"Total Months: {num_of_months}\n"
+        f"Total: ${net_total_profit_losses}\n"
+        f"Average Change: ${avg_change_rounded}\n"
+        f"Greatest Increase in Profits: {max_inc_date} (${max_increase})\n"
+        f"Greatest Decrease in Profits: {max_dec_date} (${max_decrease})\n")
+
+    # print(f"Total Months: {num_of_months}")
+    # print(f"Total: ${net_total_profit_losses}")
+    # print(f"Average Change: ${avg_change_rounded}")
+    # print(f"Greatest Increase in Profits: {max_inc_date} (${max_increase})")
+    # print(f"Greatest Decrease in Profits: {max_dec_date} (${max_decrease})")
+
+    print(output)
+
+    # Export the results to text file
+    # This section provided in Slack by Daniel (Instructor)
+with open(output_file, "w") as txt_file:
+    txt_file.write(output)
 
 # Open the output text file in write mode
 # Found the structure for this and txtfile on google
-with open(output_file, "w") as txtfile:
-    # Write the results to the text file
-    # \n tells the code to start a new line
-    # is there a different/more efficient way to do this?
-    txtfile.write("Financial Analysis\n")
-    txtfile.write("---------------------\n")
-    txtfile.write(f"Total Months: {num_of_months}\n")
-    txtfile.write(f"Total: ${net_total_profit_losses}\n")
-    txtfile.write(f"Average Change: ${avg_change_rounded}\n")
-    txtfile.write(f"Greatest Increase in Profits: {max_inc_date} (${max_increase})\n")
-    txtfile.write(f"Greatest Decrease in Profits: {max_dec_date} (${max_decrease})\n")
+# with open(output_file, "w") as txtfile:
+#     # Write the results to the text file
+#     # \n tells the code to start a new line
+#     # is there a different/more efficient way to do this?
+#     txtfile.write("Financial Analysis\n")
+#     txtfile.write("---------------------\n")
+#     txtfile.write(f"Total Months: {num_of_months}\n")
+#     txtfile.write(f"Total: ${net_total_profit_losses}\n")
+#     txtfile.write(f"Average Change: ${avg_change_rounded}\n")
+#     txtfile.write(f"Greatest Increase in Profits: {max_inc_date} (${max_increase})\n")
+#     txtfile.write(f"Greatest Decrease in Profits: {max_dec_date} (${max_decrease})\n")
 
 # Print a message indicating that the export is complete
 # got this idea online
